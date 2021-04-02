@@ -1,3 +1,7 @@
+// -*- mode: java; c-basic-offset: 2; -*-
+// Released under the GNU General Public License v3.0
+// https://www.gnu.org/licenses/gpl-3.0.en.html
+
 package io.mohamed.CustomSpotlight;
 
 import com.google.appinventor.components.annotations.DesignerComponent;
