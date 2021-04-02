@@ -37,6 +37,7 @@ import com.takusemba.spotlight.Spotlight;
 import com.takusemba.spotlight.OnSpotlightEndedListener;
 import com.takusemba.spotlight.OnSpotlightStartedListener;
 import com.takusemba.spotlight.OnTargetClosedListener;
+import com.takusemba.spotlight.Target;
 
 import java.util.ArrayList;
 import java.lang.reflect.Method;
@@ -46,7 +47,7 @@ import java.io.File;
       versionName = "1.1",
       category = ComponentCategory.EXTENSION,
       nonVisible = true,
-      description = "An extension to show a spotlight on the given point, or component, you can use this extension to explain the usage of your app's primary functions."
+      description = "An extension to show a spotlight on the given point, or component, you can use this extension to explain the usage of your app's primary functions.",
       helpUrl = "https://community.kodular.io/t/custom-spotlight-extension/111632",
       iconName = "aiwebres/icon.png")
 @UsesLibraries(libraries = "Spotlight.jar")
@@ -829,9 +830,9 @@ public class CustomSpotlight extends AndroidNonvisibleComponent {
      * @return the view or an empty view if it fails to get the given component view
      */
     private View getView(Object comp) {
-      if (!comp instanceof Component) {
+      if (!(comp instanceof Component)) {
         // to prevent NPEs
-        return new View(Context);
+        return new View(context);
       }
       try {
         Method mMethod = comp.getClass().getMethod("getView");
